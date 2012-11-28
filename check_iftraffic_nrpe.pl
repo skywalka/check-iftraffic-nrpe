@@ -213,11 +213,12 @@ if (   ( $in_usage > $warn_usage )
 $output .= "<br>$exit_status bandwidth utilization.\n"
   if ( $exit_status ne "OK" );
 
-#$output .=
-#"| inUsage=$in_usage;$warn_usage;$crit_usage outUsage=$out_usage;$warn_usage;$crit_usage "  . "inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
-
 $output .=
-"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;;\n";
+#"| inUsage=$in_usage;$warn_usage;$crit_usage outUsage=$out_usage;$warn_usage;$crit_usage "  . "inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
++"| inUsage=$in_usage;$warn_usage;$crit_usage outUsage=$out_usage;$warn_usage;$crit_usage inBandwidth=$in_traffic outBandwidth=$out_traffic inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
+
+##$output .=
+##"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;;\n";
 
 
 print $output;
