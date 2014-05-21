@@ -94,10 +94,10 @@ foreach (@f) {
         }
 }
 
-$line =~ s/\s+/ /g;
-@splitLine=split (/ /,$line);
+$line =~ s/^\s+|\s+$//g;
+@splitLine=split /[: ]+/, $line;
 
-(undef,$in_bytes)=split (/:/,$splitLine[1]);
+$in_bytes=$splitLine[1];
 $out_bytes=$splitLine[9];
 
 
