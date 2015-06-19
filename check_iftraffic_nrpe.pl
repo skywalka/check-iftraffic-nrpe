@@ -4,6 +4,11 @@
 # Created by Van Dyck Sven
 # mobilesvenvd@gmail.com
 #
+# Updated by Luke Harris
+# skywalka@gmail.com
+# Date: 2015-06-19
+#
+# v0.92 Change performance data output to work together with pnp4nagios and Splunk
 # v0.91 Change performance data output to work togethet with pnp4nagios
 # v0.9 Initial version
 #
@@ -215,7 +220,7 @@ $output .= "<br>$exit_status bandwidth utilization.\n"
 
 $output .=
 #"| inUsage=$in_usage;$warn_usage;$crit_usage outUsage=$out_usage;$warn_usage;$crit_usage "  . "inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
-+"| inUsage=$in_usage;$warn_usage;$crit_usage outUsage=$out_usage;$warn_usage;$crit_usage inBandwidth=$in_traffic outBandwidth=$out_traffic inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
++"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;; inBandwidth=$in_traffic outBandwidth=$out_traffic inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
 
 ##$output .=
 ##"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;;\n";
