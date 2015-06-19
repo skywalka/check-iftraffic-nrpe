@@ -13,6 +13,9 @@
 # v0.9 Initial version
 #
 # Script based on check_iftraffic.pl
+#
+# Example Usage:
+# ./check_iftraffic_nrpe.pl -i eth0 -b 1000 -u g -w 90 -c 99
 
 
 use strict;
@@ -220,7 +223,7 @@ $output .= "<br>$exit_status bandwidth utilization.\n"
 
 $output .=
 #"| inUsage=$in_usage;$warn_usage;$crit_usage outUsage=$out_usage;$warn_usage;$crit_usage "  . "inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
-+"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;; inBandwidth=$in_traffic outBandwidth=$out_traffic inAbsolut=$in_traffic_absolut outAbsolut=$out_traffic_absolut\n";
++"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;; inBandwidth=$in_traffic;;;; outBandwidth=$out_traffic;;;; inAbsolut=$in_traffic_absolut;;;; outAbsolut=$out_traffic_absolut;;;;\n";
 
 ##$output .=
 ##"| inUsage=$in_usage;$warn_usage;$crit_usage;; outUsage=$out_usage;$warn_usage;$crit_usage;;\n";
