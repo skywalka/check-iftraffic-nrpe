@@ -6,8 +6,9 @@
 #
 # Updated by Luke Harris
 # skywalka@gmail.com
-# Date: 2015-06-19
+# Date: 2015-06-23
 #
+# v0.93 Updated regex for line var as some systems include a space (thanks to https://github.com/JOpsDev)
 # v0.92 Change performance data output to work together with pnp4nagios and Splunk
 # v0.91 Change performance data output to work togethet with pnp4nagios
 # v0.9 Initial version
@@ -15,7 +16,7 @@
 # Script based on check_iftraffic.pl
 #
 # Example Usage:
-# ./check_iftraffic_nrpe.pl -i eth0 -b 1000 -u g -w 90 -c 99
+# ./check_iftraffic_nrpe.pl -i eth0 -b 1000 -u m -w 90 -c 95
 
 
 use strict;
@@ -102,10 +103,10 @@ foreach (@f) {
         }
 }
 
-$line =~ s/\s+/ /g;
-@splitLine=split (/ /,$line);
+$line =~ s/^\s+|\s+$//g;
+@splitLine=split /[: ]+/, $line;
 
-(undef,$in_bytes)=split (/:/,$splitLine[1]);
+$in_bytes=$splitLine[1];
 $out_bytes=$splitLine[9];
 
 
